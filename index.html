@@ -26,12 +26,10 @@
     <button id="black">Make Black</button>
 
 
-
-
     <div id="comment-show"></div>
     <div class="m-10">
         <div>
-            <textarea class="border-1 border-red-500 p-5" name="" rows="5" cols="50" id="comment-input"></textarea>
+            <textarea class="border-1 border-red p-5" name="" rows="5" cols="50" id="comment-input"></textarea>
             <br>
             <button id="post" class="border-1 border-green-500 p-5">Post Your Comment</button>
         </div>
@@ -61,6 +59,7 @@
         document.getElementById('comment-input').addEventListener('keydown', function (event) {
             if (event.key === 'Enter' && !event.shiftKey) {
                 event.preventDefault();
+                postComment();
             }
         });
     </script>
