@@ -60,8 +60,7 @@
 
         document.getElementById('comment-input').addEventListener('keydown', function (event) {
             if (event.key === 'Enter' && !event.shiftKey) {
-                event.preventDefault(); // Enter press korle notun line na ashe, direct post hoy
-                postComment();
+                event.preventDefault();
             }
         });
     </script>
