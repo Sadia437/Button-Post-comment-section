@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>DOM EVENT</title>
+</head>
+
+<body>
+
+    <button onclick="alert('amader even kaj kore')">Click Me</button>
+
+    <button onclick="confirm ('Are You Sure')">Click Here</button>
+
+    <button onclick="prompt('Are You Sure')">Checking For</button>
+
+    <button onclick="firstClick()">Another Button</button>
+
+    <button onclick="firstClick('Are You Sure')">Checking For Green</button>
+    <button id="purple">Make Purple Background</button>
+
+    <button id="yellow"> Make Yellow</button>
+
+    <button id="black">Make Black</button>
+
+
+
+
+    <div id="comment-show"></div>
+    <div class="m-10">
+        <div>
+            <textarea class="border-1 border-red-500 p-5" name="" rows="5" cols="50" id="comment-input"></textarea>
+            <br>
+            <button id="post" class="border-1 border-green-500 p-5">Post Your Comment</button>
+        </div>
+    </div>
+
+    <script>
+        function postComment() {
+            const commentBox = document.getElementById('comment-input');
+            const commentText = commentBox.value.trim();
+
+            if (commentText !== '') {
+                const p = document.createElement('p');
+                p.style.cssText = 'background-color:gray; padding:20px; margin:20px';
+                p.innerText = commentText;
+
+                const ui = document.getElementById('comment-show');
+                ui.appendChild(p);
+
+                commentBox.value = '';
+            }
+        }
+
+        document.getElementById('post').addEventListener('click', function () {
+            postComment();
+        });
+
+        document.getElementById('comment-input').addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault(); // Enter press korle notun line na ashe, direct post hoy
+                postComment();
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
